@@ -1,0 +1,14 @@
+{% extends 'blog_app/base.html' %}
+
+{% block head_title %}
+{{obj_details.title}} | {{block.super}}
+{% endblock head_title %}
+
+{% block content %}
+<div class="col-md-6 offset-md-3">
+<h1>{{obj_details.title}}</h1><small>{{obj_details.timestamp}}</small>
+<p>{{obj_details.content|linebreaks}}</p>
+</div>
+ 
+
+{% endblock content %}

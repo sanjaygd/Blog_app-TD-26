@@ -1,0 +1,36 @@
+{% extends 'blog_app/base.html' %}
+
+
+{% block content %}
+<h1>Heading for test</h1>
+<div class="col-sm-8 offset-2">
+<div class="row">
+    {% for obj in object_list %}
+    <div class="col-sm-6">
+        <div class="card" style="width: 18rem;">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <div class="card-body">
+                <h5 class="card-title">{{obj.title}}</h5>
+                <p class="card-text">{{obj.content|truncatechars:30}}</p>
+                <a href="{% url 'posts:post_details' pk=obj.pk %}" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div><br><br>
+    </div>
+
+    {% cycle "" "<div class='col-sm-12'><hr></div></div><div class='row'>" %}
+
+    <!--dynamic url added-->
+    {% endfor %}
+</div>
+</div>
+
+
+<span><br></span>
+{% for obj in object_list %}
+<!-- <a href="{{ obj.get_absolute_url }}"><strong>{{obj.title}}</strong></a><br> -->
+
+<!-- 2nd method  -->
+{% endfor %}
+
+</div>
+{% endblock content %}
